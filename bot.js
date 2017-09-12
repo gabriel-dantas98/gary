@@ -6,7 +6,7 @@ var controller = Botkit.slackbot({
 });
 
 var bot = controller.spawn({
-    token: 'xoxb-191251446178-AItyN4FCEX4n5GlTg16hM0If'
+token: 'xoxb-191251446178-ZpNC4yuu7ejgZujug1V74HjU'
 }).startRTM();
 
 
@@ -24,7 +24,7 @@ controller.hears(['listaip','listIp','ubuntuzera','ubuntuzeraServer','servidores
     
 });
 
-controller.hears(['hello', 'eae'], 'direct_message,direct_mention,mention', function(bot, message) {
+controller.hears(['hello', 'eae', 'ta vivo?', 'morreu?', 'ta vivo'], 'direct_message,direct_mention,mention', function(bot, message) {
     var helloText = "Meooowwww!!!";
 
     bot.reply(message, helloText);
