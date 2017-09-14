@@ -1,3 +1,3 @@
 # kivy-biuldApk
-# Test jenkins push
+# Teste jenkins detected push to biuld
 
