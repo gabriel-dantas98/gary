@@ -7,7 +7,7 @@ var controller = Botkit.slackbot({
 
 var bot = controller.spawn({
 
-	token: 'xoxb-191251446178-lmp4UHF4d8TqLXyT9UdC8c16'
+	token: 'xoxb-191251446178-UuxzHKNPFPKMUEnfWHLhQgP9'
 
 }).startRTM();
 
@@ -124,6 +124,20 @@ controller.hears(['lista magrelin'], 'direct_message,direct_mention,mention', fu
      
    bot.reply(message, helloText);
 })
+
+
+controller.hears(['lista magrelin'], 'direct_message,direct_mention,mention', function(bot, message) {
+    var anaozinCreed = "https://youtu.be/sPAeJATIyYU";
+
+    bot.reply(message, "*Tyrion Last Breath!!!*")
+
+    for(var i = 0; i < 6; i++){
+    bot.reply(message, anaozinCreed);
+    };
+})
+
+
+
 
 
 
