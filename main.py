@@ -1,61 +1,58 @@
-from kivy.uix.button import Button
-from kivy.uix.widget import Widget
-from kivy.uix.label import Label
-from kivy.uix.boxlayout import BoxLayout
+#'''
+#Camera Example
+#==============
+
+#This example demonstrates a simple use of the camera. It shows a window with
+#a buttoned labelled 'play' to turn the camera on and off. Note that
+#not finding a camera, perhaps because gstreamer is not installed, will
+#throw an exception during the kv language processing.
+
+
+# Uncomment these lines to see all the messages
+# from kivy.logger import Logger
+# import logging
+# Logger.setLevel(logging.TRACE)
+
 from kivy.app import App
-from kivy.graphics import Color, Rectangle
-from random import random as r
-from functools import partial
+from kivy.lang import Builder
+from kivy.uix.boxlayout import BoxLayout
+import time
+Builder.load_string('''
+<CameraClick>:
+    orientation: 'vertical'
+    Camera:
+        id: camera
+        resolution: (640, 480)
+        play: False
+    ToggleButton:
+        text: 'Play'
+        on_press: camera.play = not camera.play
+        size_hint_y: None
+        height: '48dp'
+    Button:
+        text: 'Capture'
+        size_hint_y: None
+        height: '48dp'
+        on_press: root.capture()
+''')
 
 
-class StressCanvasApp(App):
+class CameraClick(BoxLayout):
+    def capture(self):
+        '''
+        Function to capture the images and give them the names
+        according to their captured time and date.
+        '''
+        camera = self.ids['camera']
+        timestr = time.strftime("%Y%m%d_%H%M%S")
+        camera.export_to_png("IMG_{}.png".format(timestr))
+        print("Captured")
 
-    def add_rects(self, label, wid, count, *largs):
-        label.text = str(int(label.text) + count)
-        with wid.canvas:
-            for x in range(count):
-                Color(r(), 1, 1, mode='hsv')
-                Rectangle(pos=(r() * wid.width + wid.x,
-                               r() * wid.height + wid.y), size=(20, 20))
 
-    def double_rects(self, label, wid, *largs):
-        count = int(label.text)
-        self.add_rects(label, wid, count, *largs)
-
-    def reset_rects(self, label, wid, *largs):
-        label.text = '0'
-        wid.canvas.clear()
+class TestCamera(App):
 
     def build(self):
-        wid = Widget()
-
-        label = Label(text='0')
-
-        btn_add100 = Button(text='+ 100 rects',
-                            on_press=partial(self.add_rects, label, wid, 100))
-
-        btn_add500 = Button(text='+ 500 rects',
-                            on_press=partial(self.add_rects, label, wid, 500))
-
-        btn_double = Button(text='x 2',
-                            on_press=partial(self.double_rects, label, wid))
-
-        btn_reset = Button(text='Reset',
-                           on_press=partial(self.reset_rects, label, wid))
-
-        layout = BoxLayout(size_hint=(1, None), height=50)
-        layout.add_widget(btn_add100)
-        layout.add_widget(btn_add500)
-        layout.add_widget(btn_double)
-        layout.add_widget(btn_reset)
-        layout.add_widget(label)
-
-        root = BoxLayout(orientation='vertical')
-        root.add_widget(wid)
-        root.add_widget(layout)
-
-        return root
+        return CameraClick()
 
 
-if __name__ == '__main__':
-    StressCanvasApp().run()
+TestCamera().run()
