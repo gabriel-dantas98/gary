@@ -1,3 +1,3 @@
 # kivy-biuld
-#Teste jenkins 
+#Teste jenkinzera 
 
