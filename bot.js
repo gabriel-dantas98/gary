@@ -21,7 +21,7 @@ controller.hears(['public-ip'], 'direct_message, direct_mention, mention', funct
 
 controller.hears(['boruto insight', 'yura yura', 'fezinho'], 'direct_message,direct_mention,mention', function(bot, message) {
     var youtubeBoruto = "https://www.youtube.com/watch?v=9iL_QkzNQ94";
-    for(var i = 0; i < 5; i++){
+    for(var i = 0; i < 3; i++){
         bot.reply(message, youtubeBoruto);
     }
      
@@ -32,20 +32,21 @@ controller.hears(['build-upload'], 'direct_message,direct_mention,mention', func
     const exec = require('child_process').exec;
     var yourscript = exec('sh build-start.sh',
             (error, stdout, stderr) => {
-                console.log(`${stdout}`);
-                console.log(`${stderr}`);
+               bot.reply(message,'${stdout}');
+               bot.reply(message,'${stderr}');
                 if (error !== null) {
-                    console.log(`exec error: ${error}`);
+                    bot.reply(message,'Deu ruim! -> exec error: ${error}');
                 }
             });
+
     
     var token = 'xoxp-190584162307-191481662663-238070906900-e03211abbb2f9987a5c9d80b7c7c5e94';
 
-    bot.reply(message,'Uploading...');
+    bot.reply(message,'Segura ae que eu vo buscar...');
 
     var web = new WebClient(token);
-    var filePath = '/home/gabs/Documentos/upload/publicIp.py';
-    var fileName = 'publicIp.py';
+    var filePath = '/home/gabriel/pyLab/README.mb';
+    var fileName = 'README.mb';
 
     var streamOpts = {
         file: fs.createReadStream(filePath),
@@ -55,6 +56,8 @@ controller.hears(['build-upload'], 'direct_message,direct_mention,mention', func
     web.files.upload(fileName, streamOpts, function handleStreamFileUpload    (err, res) {
        console.log(res);
     });
+	
+   bot.reply(message, 'Pronto pode ir no #zettamemes ir buscar -.-');
      
 })
 
