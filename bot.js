@@ -50,7 +50,7 @@ controller.hears(['build-upload'], 'direct_message,direct_mention,mention', func
 
     var streamOpts = {
         file: fs.createReadStream(filePath),
-        channels: ['zettamemes']
+        channels: ['gary-build']
     };
     
     web.files.upload(fileName, streamOpts, function handleStreamFileUpload    (err, res) {
