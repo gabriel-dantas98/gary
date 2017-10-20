@@ -32,10 +32,10 @@ controller.hears(['build-upload'], 'direct_message,direct_mention,mention', func
     const exec = require('child_process').exec;
     var yourscript = exec('sh build-start.sh',
             (error, stdout, stderr) => {
-               bot.reply(message,'${stdout}');
-               bot.reply(message,'${stderr}');
+               console.log('${stdout}');
+               console.log('${stderr}');
                 if (error !== null) {
-                    bot.reply(message,'Deu ruim! -> exec error: ${error}');
+                    console.log('exec error: ${error}');
                 }
             });
 
