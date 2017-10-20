@@ -32,15 +32,15 @@ controller.hears(['build-upload'], 'direct_message,direct_mention,mention', func
     const exec = require('child_process').exec;
     var yourscript = exec('sh build-start.sh',
             (error, stdout, stderr) => {
-               console.log('${stdout}');
-               console.log('${stderr}');
+               console.log(`${stdout}`);
+               console.log(`${stderr}`);
                 if (error !== null) {
-                    console.log('exec error: ${error}');
+                     console.log(`exec error: ${error}`);
                 }
             });
 
     
-    var token = 'xoxp-190584162307-191481662663-259324021941-c479f7d20f8667b17aa7bcfd940307b7';
+    var token = 'xoxp-190584162307-191481662663-259198058818-736e909e8040682b7d516b161be51e43';
 
     bot.reply(message,'Segura ae que eu vo buscar...');
 
