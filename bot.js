@@ -19,7 +19,7 @@ controller.hears(['public-ip'], 'direct_message, direct_mention, mention', funct
     });    
 })
 
-controller.hears(['ta vivo', 'ta morto', 'ta vivo?', 'ta morto?'], function(bot, message){
+controller.hears(['ta vivo', 'ta morto', 'ta vivo?', 'ta morto?'],'direct_message, direct_mention, mention', function(bot, message){
 
 	bot.reply(message, 'to lek');
 })
@@ -45,13 +45,13 @@ controller.hears(['build-upload'], 'direct_message,direct_mention,mention', func
             });
 
     
-    var token = 'xoxp-190584162307-191481662663-260605557287-1445fce9f0771c303327c83aeeb56ee1';
+    var token = 'xoxp-190584162307-191481662663-259737531861-0dcfdbb7f18b2181f17a2fa61e6528e7';   
 
     bot.reply(message,'Segura ae que eu vo buscar...');
 
     var web = new WebClient(token);
-    var filePath = '/home/gabriel/pyLab/README.mb';
-    var fileName = 'README.mb';
+    var filePath = '/home/gabriel/pyLab/bin/MyApplication-0.1-debug.apk';
+    var fileName = 'MyApplication-0.1-debug.apk';
 
     var streamOpts = {
         file: fs.createReadStream(filePath),
