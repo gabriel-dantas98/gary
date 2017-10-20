@@ -40,7 +40,7 @@ controller.hears(['build-upload'], 'direct_message,direct_mention,mention', func
             });
 
     
-    var token = 'xoxp-190584162307-191481662663-259218999124-7f93f904068e6343a314a515bbd1a381';
+    var token = 'xoxp-190584162307-191481662663-259324021941-c479f7d20f8667b17aa7bcfd940307b7';
 
     bot.reply(message,'Segura ae que eu vo buscar...');
 
