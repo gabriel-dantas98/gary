@@ -1,5 +1,5 @@
-git pull
+git pull  /home/gabriel/gitHub/gabriel/kivy-build/
 
-mv -f /home/gabriel/gitHub/gabriel/kivy-build/README.mb /home/gabriel/pyLab
+cp -f /home/gabriel/gitHub/gabriel/kivy-build/*  /home/gabriel/pyLab/
 
-echo 'Finished!'
+echo 'Moved finished!'
