@@ -62,7 +62,6 @@ controller.hears(['build-upload', 'build'], 'direct_message,direct_mention,menti
             (error, stdout, stderr) => {
                console.log(`${stdout}`);
                console.log(`${stderr}`);
-		bot.reply(message, 'shell done!');
                 if (error !== null) {
                      console.log(`exec error: ${error}`);
                 }
@@ -88,7 +87,7 @@ controller.hears(['build-upload', 'build'], 'direct_message,direct_mention,menti
     
     web.files.upload(fileName, streamOpts, function handleStreamFileUpload (err, res) {
        console.log(res);
-	bot.reply(message, '*Process done!*');
+	bot.reply(message, '*Terminei parça! :sunglasses:*');
     
     var token2 = 'xoxb-191251446178-xCwWEz1JgRU1JQSX8yeC8W4F';
     var web2 = new WebClient(token2);
