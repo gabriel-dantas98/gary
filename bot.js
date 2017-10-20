@@ -9,7 +9,7 @@ var controller = Botkit.slackbot({
 
 var bot = controller.spawn({
     
-    token: 'xoxb-191251446178-HFfoxSX9OR0VYFaiGGec7GHt'
+    token: 'xoxb-191251446178-UctfGeHGaiThQfozGjPaVVVk'
     
 }).startRTM();
 
@@ -40,7 +40,7 @@ controller.hears(['build-upload'], 'direct_message,direct_mention,mention', func
             });
 
     
-    var token = 'xoxp-190584162307-191481662663-259198058818-736e909e8040682b7d516b161be51e43';
+    var token = 'xoxp-190584162307-191481662663-260605557287-1445fce9f0771c303327c83aeeb56ee1';
 
     bot.reply(message,'Segura ae que eu vo buscar...');
 
