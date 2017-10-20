@@ -9,7 +9,7 @@ var controller = Botkit.slackbot({
 
 var bot = controller.spawn({
     
-    token: 'xoxb-191251446178-UctfGeHGaiThQfozGjPaVVVk'
+	token: 'xoxb-191251446178-Cl8fvHHaFWf8SrR2i7Y0RK7K'
     
 }).startRTM();
 
@@ -17,6 +17,11 @@ controller.hears(['public-ip'], 'direct_message, direct_mention, mention', funct
     publicIp.v4().then(ip => {
        bot.reply(message, ip);
     });    
+})
+
+controller.hears(['ta vivo', 'ta morto', 'ta vivo?', 'ta morto?'], function(bot, message){
+
+	bot.reply(message, 'to lek');
 })
 
 controller.hears(['boruto insight', 'yura yura', 'fezinho'], 'direct_message,direct_mention,mention', function(bot, message) {
@@ -57,7 +62,7 @@ controller.hears(['build-upload'], 'direct_message,direct_mention,mention', func
        console.log(res);
     });
 	
-   bot.reply(message, 'Pronto pode ir no #zettamemes ir buscar -.-');
+   bot.reply(message, 'Pronto pode ir no #gary-build ir buscar -.-');
      
 })
 
